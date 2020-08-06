@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+    <link rel="stylesheet" href="stylesheet/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar">
+        <a href="#statistics">Statistics</a>
+        <a href="#healthInfo">Health Info</a>
+        <a href="#coping">Coping</a>
+      </div>
+      
+    <div id="statistics" style="padding-top: 50px;">
+        <canvas id="myChart" c></canvas>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="images/safedistance.png" alt="Denim Jeans" style="width:100%">
+                <h1>Keep a Safe Distance</h1>
+                <p>Maintain a safe distance from anyone who is coughing or sneezing.</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="images/wearmask.jpg" alt="Denim Jeans" style="width:100%">
+                <h1>Wear a mask.</h1>
+                <p>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="images/washhands.png" alt="Denim Jeans" style="width:100%">
+                <h1>Wash your hands</h1>
+                <p>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="healthInfo">
+        <div class="row">
+            <div id="ttbll" class="column left">
+                <table id="overviewShort">
+                    <tr class="tableHead">
+                        <th>Location</th>
+                        <th>Confirmed</th>
+                        <th>Recovered</th>
+                        <th>Deaths</th>
+                    </tr>
+                    <tr class="kerala">
+                        <td>Kerala</td>
+                        <td>27,956</td>
+                        <td>16,299</td>
+                        <td>87</td>
+                    </tr>
+                    <tr class="maharashtra">
+                        <td>Maharashtra</td>
+                        <td>458K</td>
+                        <td>299K</td>
+                        <td>16,142</td>
+                    </tr>
+                    <tr class="tamilnadu">
+                        <td>Tamil Nadu</td>
+                        <td>268K</td>
+                        <td>209K</td>
+                        <td>4,349</td>
+                    </tr>
+                    <tr class="andhrapradesh">
+                        <td>Andhra Pradesh</td>
+                        <td>176K</td>
+                        <td>95,625</td>
+                        <td>1,604</td>
+                    </tr>
+                    <tr class="karnataka">
+                        <td>Karnataka</td>
+                        <td>146K</td>
+                        <td>65,272</td>
+                        <td>2,704</td>
+                    </tr>
+                </table>
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'keralaReport')">Kerala</button>
+                    <button class="tablinks" onclick="openCity(event, 'indiaReport')">India</button>
+                    <button class="tablinks" onclick="openCity(event, 'worldReport')">World</button>
+                  </div>
+                  
+                  
+                  <!-- Tab content -->
+                  <div id="keralaReport" class="tabcontent">
+                    <div class="keralacovid">
+                        <div>
+                            <div>
+                                <span></span>
+                                <span class="mynamekerala">
+                                    <span>Kerala</span>
+                                </span>
+                            </div>
+                        </div>
+                        <table class="keralacovidtable">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>Confirmed</div>
+                                        <div>
+                                            <div>
+                                                <span>27,956</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 1,083</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Recovered</div>
+                                        <div>
+                                            <div>
+                                                <span>16,299</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Death</div>
+                                        <div>
+                                            <div>
+                                                <span>87</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 3</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+                  
+                  <div id="indiaReport" class="tabcontent">
+                    <div class="indiacovid">
+                        <div>
+                            <div>
+                                <span></span>
+                                <span class="mynameindia">
+                                    <span>India</span>
+                                </span>
+                            </div>
+                        </div>
+                        <table class="indiacovidtable">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>Confirmed</div>
+                                        <div>
+                                            <div>
+                                                <span>1.91 M</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 52,050</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Recovered</div>
+                                        <div>
+                                            <div>
+                                                <span>1.28 M</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Death</div>
+                                        <div>
+                                            <div>
+                                                <span>3,975</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 803</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+                  
+                  <div id="worldReport" class="tabcontent">
+                    <div class="keralacovid">
+                        <div>
+                            <div>
+                                <span></span>
+                                <span class="mynamekerala">
+                                    <span>World</span>
+                                </span>
+                            </div>
+                        </div>
+                        <table class="keralacovidtable">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div>Confirmed</div>
+                                        <div>
+                                            <div>
+                                                <span>18.4 M</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 224K</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Recovered</div>
+                                        <div>
+                                            <div>
+                                                <span>11 M</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>Death</div>
+                                        <div>
+                                            <div>
+                                                <span>692 K</span>
+                                            </div>
+                                            <div style="display: none;"></div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span>+ 4,310</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+            </div>
+            <div id="hinfo" class="column right">
+                <table>
+                    <tr>
+                        <div class="symtompChecks">
+                            <div>
+                                <div>
+                                    <img src="images/light_fever.gif" alt="Light Fever" />
+                                </div>
+                                <div>Fever</div>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="images/light_cough.gif" alt="Light Fever" />
+                                </div>
+                                <div>Cough</div>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="images/light_tiredness.gif" alt="Light Fever" />
+                                </div>
+                                <div>Tiredness</div>
+                            </div>
+                        </div>
+                        <br>
+                    </tr>
+                    <tr>COVID-19 affects different people in different ways. Most infected people will develop mild to<br> moderate illness and recover without hospitalization.</tr>
+                    <tr>
+                        <h1>Most Common Symptoms:</h1>
+                        <ul>
+                            <li>Fever</li>
+                            <li>Dry Cough</li>
+                            <li>Tiredness</li>
+                        </ul>
+                        <h2>Less Common Symptoms:</h2>
+                        <ul>
+                            <li>Aches & Pains</li>
+                            <li>Sore throat</li>
+                            <li>Diarrhoe</li>
+                            <li>Conjunctivitis</li>
+                            <li>Headache</li>
+                            <li>Loss of Taste or Smell</li>
+                            <li>A rash on Skin, or Discolouration of Fingers or Toes</li>
+                        </ul>
+                        <h3>Serious Symptoms:</h3>
+                        <ul>
+                            <li>Difficulty Breathing or Shortness of Breath</li>
+                            <li>Chest Pain or Pressure</li>
+                            <li>Loss of Speech or Movement</li>
+                        </ul>
+                        <br>
+                        <p>Seek immediate medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.<br>
+                            <br>People with mild symptoms who are otherwise healthy should manage their symptoms at home.<br>
+                            <br>On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days.
+                        </p>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="London" class="tabcontent">
+        <h1>London</h1>
+        <p>London is the capital city of England.</p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h1>Paris</h1>
+        <p>Paris is the capital of France.</p>
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <h1>Tokyo</h1>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+      
+      <div id="Oslo" class="tabcontent">
+        <h1>Oslo</h1>
+        <p>Oslo is the capital of Norway.</p>
+      </div>
+      
+      <button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">London</button>
+      <button class="tablink" onclick="openCity('Paris', this, 'green')">Paris</button>
+      <button class="tablink" onclick="openCity('Tokyo', this, 'blue')">Tokyo</button>
+      <button class="tablink" onclick="openCity('Oslo', this, 'orange')">Oslo</button>
+    <script>
+
+        //import Chart from 'chart.js';
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['13 Apr', '10 May', '06 Jun', '3 Jul', '31 Jul', '04 Aug', '31 Aug'],
+        datasets: [{
+            label: 'Corona Tracker',
+            backgroundColor: 'Purple',
+            borderColor: 'hsl(204, 100%, 45%)',
+            data: [1463, 3561, 9893, 24248, 49931, 55078, 52050]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+    </script>
+    <script src="source/index.js"></script>
+</body>
+</html>
